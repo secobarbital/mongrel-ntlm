@@ -1,0 +1,24 @@
+An NTLM Handler for Mongrel
+===========================
+
+This handler will handle NTLM authentication and leave the user's credentials in the environment for the app to read.
+
+
+===========
+Using the handler
+===========
+
+Create a custom route for your login action:
+
+  # Custom route for NTLM authentication to prevent IE from authenticating POSTs to user_controller
+  # http://lists.samba.org/archive/jcifs/2006-September/006554.html
+  map.connect 'ntlm/login', :controller => 'user', :action => 'login'
+
+Copy the contents of config and lib into your app's config and lib directories respectively, and invoke mongrel with the -S config/mongrel_ntlm.conf:
+
+  $ mongrel_rails -S config/mongrel_ntlm.conf
+
+The handler will then clear and then set two headers that your app can read:
+
+  request.params['REMOTE_USER'] will contain the user's identity
+  request.params['HTTP_X_MONGREL_PID'] will contain the mongrel pid to be doubly sure that REMOTE_USER was not injected by the user
