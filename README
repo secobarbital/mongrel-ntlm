@@ -3,7 +3,6 @@ An NTLM Handler for Mongrel
 
 This handler will handle NTLM authentication and leave the user's credentials in the environment for the app to read.
 
-
 ===========
 Using the handler
 ===========
@@ -22,3 +21,12 @@ The handler will then clear and then set two headers that your app can read:
 
   request.params['REMOTE_USER'] will contain the user's identity
   request.params['HTTP_X_MONGREL_PID'] will contain the mongrel pid to be doubly sure that REMOTE_USER was not injected by the user
+
+
+===========
+Future
+===========
+
+This project is no longer being updated, as I no longer use Windows. Please try the following alternatives if you are having problems:
+  * Alexey (snaury) has made a few fixes in his fork, give it a shot: http://github.com/snaury/mongrel-ntlm
+  * for the project that spawned this plugin, we ended up using the ISAPI Rewrite filter on IIS as a reverse proxy for plain vanilla mongrels: http://isapirewrite.com
