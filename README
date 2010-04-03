@@ -29,4 +29,5 @@ Future
 
 This project is no longer being updated, as I no longer use Windows. Please try the following alternatives if you are having problems:
   * Alexey (snaury) has made a few fixes in his fork, give it a shot: http://github.com/snaury/mongrel-ntlm
+  * Glenn has written a detailed log of his installation and use of the plugin in his blog: http://mentalpagingspace.blogspot.com/2008/12/rails-to-windows-integration-single.html
   * for the project that spawned this plugin, we ended up using the ISAPI Rewrite filter on IIS as a reverse proxy for plain vanilla mongrels: http://isapirewrite.com
